@@ -7,6 +7,7 @@ export const Container = styled.div`
   margin: -8px;
   color: rgb(0, 6, 53);
   font-size: 18px;
+  background-color: #282c34;
 `;
 export const MainHeader = styled.h1`
   font-size: 60px;

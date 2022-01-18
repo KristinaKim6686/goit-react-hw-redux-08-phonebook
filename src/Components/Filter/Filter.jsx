@@ -1,6 +1,6 @@
 import { Label, Text, Input } from "./Filter.styled";
 
-const Filter = ({ onFilter, filterValue }) => {
+const Filter = ({ filterValue, onFilter }) => {
   return (
     <>
       <Label>
