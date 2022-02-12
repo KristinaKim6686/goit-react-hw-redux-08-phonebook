@@ -1,30 +1,19 @@
-import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/store.js";
+import { useSelector } from "react-redux";
+import { deleteContact } from "../../redux/phonebookActions";
 import { List } from "./ContactList.styled";
 import PhonebookListItem from "./ContactListItem";
+import { getContacts, getFilter } from "../../redux/phonebookSelector";
+import contactsFilter from "../../utils/contactFilter";
+const ContactList = () => {
+  const fullContactList = useSelector(getContacts);
+  const filter = useSelector(getFilter);
+  const contacts = contactsFilter(fullContactList, filter);
 
-const ContactList = ({ contacts, id }) => {
-  const dispatch = useDispatch();
-  const handleDeleteContact = (event) => {
-    const numberToDelete = contacts.find((el) => el.id === id);
-
-    dispatch(deleteContact({ numberToDelete: "" }));
-    // setContacts(
-    //   contactList.filter((contact) => contact.id !== event.target.id)
-    // );
-    console.log(contacts);
-  };
   return (
     <List>
       {contacts.map(({ name, number, id }) => {
         return (
-          <PhonebookListItem
-            key={id}
-            name={name}
-            number={number}
-            id={id}
-            onDeleteContact={handleDeleteContact}
-          />
+          <PhonebookListItem key={id} name={name} number={number} id={id} />
         );
       })}
     </List>

@@ -1,23 +1,44 @@
-import { configureStore, createReducer, createAction } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import logger from "redux-logger";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import phonebookReducer from "./phonebookReducers";
 
-const initialState = { contactList: [] };
+const contactsPersistConfig = {
+  key: "phonebook",
+  storage,
+  blacklist: "filter",
+};
+const persistedReducer = persistReducer(
+  contactsPersistConfig,
+  phonebookReducer
+);
 
-export const addContact = createAction("contacts/addContact");
-export const deleteContact = createAction("contacts/deleteContact");
-export const filterContactList = createAction("filter/filterContacts");
-
-const reducer = createReducer(initialState, {
-  [addContact]: (state, action) => ({
-    contactList: [...state.contactList, action.payload],
+const middleware = [
+  ...getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
   }),
-  [deleteContact]: (state, action) => ({
-    contactList: state.contactList.map((contact) => {
-      return contact.id === action.payload.id ? action.payload : contact;
-    }),
-  }),
-  [filterContactList]: (state, action) => ({}),
-});
+  logger,
+];
 
-export const store = configureStore({
-  reducer: reducer,
+const store = configureStore({
+  reducer: {
+    phonebook: persistedReducer,
+  },
+  middleware,
+  devTools: true,
 });
+const persistor = persistStore(store);
+
+export default { store, persistor };

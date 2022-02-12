@@ -1,6 +1,15 @@
+import { useSelector, useDispatch } from "react-redux";
+import { getFilter } from "../../redux/phonebookSelector";
+import { filterContacts } from "../../redux/phonebookActions";
+
 import { Label, Text, Input } from "./Filter.styled";
 
-const Filter = ({ filterValue, onFilter }) => {
+const Filter = () => {
+  const dispatch = useDispatch();
+  const filterValue = useSelector(getFilter);
+  const onFilter = (e) => {
+    dispatch(filterContacts(e.target.value));
+  };
   return (
     <>
       <Label>

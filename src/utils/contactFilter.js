@@ -1,7 +1,7 @@
-function filterContacts(contacts, filter) {
+function contactsFilter(contactList, filter) {
   const normalizedFilter = filter.toLowerCase().trim();
-  return contacts.filter((contact) => {
+  return contactList.filter((contact) => {
     return contact.name.toLowerCase().includes(normalizedFilter);
   });
 }
-export default filterContacts;
+export default contactsFilter;
