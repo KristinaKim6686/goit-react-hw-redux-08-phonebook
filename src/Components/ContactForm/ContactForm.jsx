@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
 import { toast } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../../redux/phonebookActions";
 import { Form, Label, Input, Button } from "./ContactForm.styled.js";
-import { getContacts } from "../../redux/phonebookSelector";
-
+import {
+  useGetContactsQuery,
+  useAddContactMutation,
+} from "../../redux/phonebookSlice";
 function ContactForm() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
-  const contactList = useSelector(getContacts);
-  const dispatch = useDispatch();
+  const { data } = useGetContactsQuery();
+  const [addContact] = useAddContactMutation();
 
   const handleChangeInfo = (e) => {
     const { name, value } = e.currentTarget;
@@ -35,7 +35,7 @@ function ContactForm() {
 
   const isInContacts = (contact) => {
     const normalizedName = contact.name.toLowerCase();
-    const allNames = contactList.map((el) => el.name.toLowerCase());
+    const allNames = data.map((el) => el.name.toLowerCase());
     const existingContact = allNames.find((name) => name === normalizedName);
     return existingContact;
   };
@@ -48,7 +48,7 @@ function ContactForm() {
       number: number,
     };
     if (!isInContacts(contact)) {
-      dispatch(addContact(contact));
+      addContact(contact);
       toast.success("Number added to rhe contacts");
     } else {
       return toast.error("Sorry, this number is already in your contacts.");

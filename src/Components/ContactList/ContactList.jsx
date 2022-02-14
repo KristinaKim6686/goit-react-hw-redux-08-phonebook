@@ -1,21 +1,22 @@
 import { useSelector } from "react-redux";
-import { deleteContact } from "../../redux/phonebookActions";
+import { useGetContactsQuery } from "../../redux/phonebookSlice";
 import { List } from "./ContactList.styled";
 import PhonebookListItem from "./ContactListItem";
-import { getContacts, getFilter } from "../../redux/phonebookSelector";
+import { getFilter } from "../../redux/phonebookSelector";
 import contactsFilter from "../../utils/contactFilter";
+
 const ContactList = () => {
-  const fullContactList = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  const contacts = contactsFilter(fullContactList, filter);
+  const { data } = useGetContactsQuery();
 
   return (
     <List>
-      {contacts.map(({ name, number, id }) => {
-        return (
-          <PhonebookListItem key={id} name={name} number={number} id={id} />
-        );
-      })}
+      {data &&
+        contactsFilter(data, filter).map(({ name, number, id }) => {
+          return (
+            <PhonebookListItem key={id} name={name} number={number} id={id} />
+          );
+        })}
     </List>
   );
 };

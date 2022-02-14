@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Form = styled.form`
+  max-width: 90vw;
   font-size: inherit;
   color: inherit;
   outline: none;
@@ -12,11 +13,13 @@ export const Label = styled.label`
   box-shadow: inset -2px 1px whitesmoke, -0.3em 0 0.4em white;
   padding: 5px 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
 `;
 
 export const Input = styled.input`
   background-color: transparent;
   margin-left: 5px;
+  margin-bottom: 10px;
   border: none;
   &:focus {
     outline: none;
