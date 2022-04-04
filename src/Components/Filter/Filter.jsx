@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { getFilter } from "../../redux/phonebookSelector";
-import { filterContacts } from "../../redux/filterReducer";
+import { getFilter } from "../../redux/phonebook/phonebookSelector";
+import { filterContacts } from "../../redux/phonebook/filterReducer";
 
 import { Label, Text, Input } from "./Filter.styled";
 

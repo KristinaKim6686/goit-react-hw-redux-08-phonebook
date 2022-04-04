@@ -8,16 +8,24 @@ export const List = styled.ul`
   margin: 0;
 `;
 export const ListItem = styled.li`
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 150px;
+  height: 200px;
+  margin: 15px;
 `;
 export const Info = styled.p`
-  color: rgb(12, 33, 197);
+  color: whitesmoke;
 `;
 export const Button = styled.button`
+  width: max-content;
   padding: 5px 10px;
-  border: 1px white;
+  border: none;
+  border-radius: 12px;
   box-shadow: inset -2px 1px whitesmoke, -0.3em 0 0.4em white;
   background-color: transparent;
   font-size: inherit;
-  color: inherit;
+  font-weight: 100;
+  color: whitesmoke;
 `;

@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { useGetContactsQuery } from "../../redux/phonebookSlice";
+import { useGetContactsQuery } from "../../redux/phonebook/phonebookSlice";
 import { List } from "./ContactList.styled";
 import PhonebookListItem from "./ContactListItem";
-import { getFilter } from "../../redux/phonebookSelector";
+import { getFilter } from "../../redux/phonebook/phonebookSelector";
 import contactsFilter from "../../utils/contactFilter";
 
 const ContactList = () => {
