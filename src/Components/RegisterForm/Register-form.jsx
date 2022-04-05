@@ -62,6 +62,7 @@ export const RegisterForm = () => {
           type="password"
           onChange={handleChange}
           value={password}
+          autoComplete="off"
         />
       </Label>
 

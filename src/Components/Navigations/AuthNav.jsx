@@ -4,7 +4,7 @@ export const AuthNav = () => {
   return (
     <>
       <NavLink
-        to="register"
+        to="registration"
         activeStyle={{ color: "red" }}
         style={({ isActive }) => ({ color: isActive ? "red" : "white" })}
       >

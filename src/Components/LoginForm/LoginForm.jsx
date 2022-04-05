@@ -35,6 +35,7 @@ export const SignupForm = () => {
           type="email"
           onChange={handleChange}
           value={email}
+          autoComplete="off"
         />
       </Label>
 
@@ -46,6 +47,7 @@ export const SignupForm = () => {
           type="password"
           onChange={handleChange}
           value={password}
+          autoComplete="off"
         />
       </Label>
 
