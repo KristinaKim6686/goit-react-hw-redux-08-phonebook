@@ -24,6 +24,7 @@ const register = createAsyncThunk("auth/register", async (credentials) => {
 const logIn = createAsyncThunk("auth/login", async (credentials) => {
   try {
     const { data } = await axios.post("/users/login", credentials);
+    token.set(data.token);
     return data;
   } catch (error) {
     toast.error("Check your email and password.");
@@ -42,15 +43,13 @@ const fetchCurrentUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
-
     token.set(persistedToken);
     try {
       const { data } = await axios.get("/users/current");
-      return data;
+      return { data };
     } catch (error) {
       toast.error("Something went wrong. Try it again");
     }

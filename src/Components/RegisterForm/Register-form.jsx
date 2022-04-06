@@ -27,6 +27,7 @@ export const RegisterForm = () => {
     setName("");
     setEmail("");
     setPassword("");
+    console.log("ups");
   };
   return (
     <Form onSubmit={handleSubmit}>

@@ -38,7 +38,6 @@ export const store = configureStore({
     ...getDefaultMiddleware(),
     phonebookApi.middleware,
   ],
-  middleware,
   devTools: process.env.NODE_ENV === "development",
 });
 setupListeners(store.dispatch);
