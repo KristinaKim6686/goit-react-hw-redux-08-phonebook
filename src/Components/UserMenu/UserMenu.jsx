@@ -9,10 +9,10 @@ export default function UserMenu() {
 
   return (
     <>
-      <img src={avatar} alt="" width="32" />
-      <span>Welcome, {name}</span>
+      <img src={avatar} alt="" width="32" style={{ padding: 10 }} />
+      <span style={{ padding: 10 }}>Welcome, {name}</span>
       <Button type="button" onClick={() => dispatch(authOperations.logOut())}>
-        Выйти
+        Logout
       </Button>
     </>
   );

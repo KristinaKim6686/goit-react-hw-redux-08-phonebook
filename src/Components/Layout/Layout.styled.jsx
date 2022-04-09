@@ -18,10 +18,13 @@ export const Container = styled.div`
 
 export const Heading = styled.div`
   width: 90vw;
-  /* padding: 20px; */
 `;
 export const Nav = styled.nav`
   display: flex;
+  flex-direction: column;
   padding: 20px;
   justify-content: space-around;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;

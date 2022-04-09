@@ -10,7 +10,7 @@ import { ProtectedRoute } from "./Components/ProtectedRoute";
 import { Layout } from "./Components/Layout/Layout";
 import { Login } from "./Views/LogIn/Login";
 import { Registration } from "./Views/Registration/Registration-form";
-
+import { Loader } from "./Components/Loader/Loader";
 const Homepage = lazy(() => import("./Views/HomeView/HomeView"));
 const Phonebook = lazy(() => import("./Views/Phonebook/Phonebook"));
 const UserView = lazy(() => import("./Views/UserView"));
@@ -25,7 +25,7 @@ function App() {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Homepage />} />

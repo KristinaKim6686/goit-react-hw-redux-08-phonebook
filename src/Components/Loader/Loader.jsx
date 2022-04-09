@@ -1,15 +1,15 @@
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-
+import "react-loader-spinner/dist/react-loader-spinner.cjs.development";
+import { Container } from "./Loader.styled";
 import { BallTriangle } from "react-loader-spinner";
-const Loader = () => {
+export const Loader = () => {
   return (
-    <>
+    <Container>
       <BallTriangle
         heigth="100"
         width="100"
-        color="grey"
+        color="white"
         ariaLabel="loading-indicator"
       />
-    </>
+    </Container>
   );
 };

@@ -8,14 +8,20 @@ export const UserNav = () => {
       <NavLink
         to="/"
         activeStyle={{ color: "red" }}
-        style={({ isActive }) => ({ color: isActive ? "red" : "white" })}
+        style={({ isActive }) => ({
+          color: isActive ? "red" : "white",
+          padding: 10,
+        })}
       >
         Home
       </NavLink>
       <NavLink
         to="/phonebook"
         activeStyle={{ color: "red" }}
-        style={({ isActive }) => ({ color: isActive ? "red" : "white" })}
+        style={({ isActive }) => ({
+          color: isActive ? "red" : "white",
+          padding: 10,
+        })}
       >
         Phonebook
       </NavLink>
