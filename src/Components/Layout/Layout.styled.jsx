@@ -24,6 +24,7 @@ export const Nav = styled.nav`
   flex-direction: column;
   padding: 20px;
   justify-content: space-around;
+
   @media (min-width: 768px) {
     flex-direction: row;
   }

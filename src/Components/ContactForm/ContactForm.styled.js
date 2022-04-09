@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const Form = styled.form`
   width: 90%;
-  height: 60px;
   color: whitesmoke;
   background: rgba(#333, 0.5);
   display: flex;
