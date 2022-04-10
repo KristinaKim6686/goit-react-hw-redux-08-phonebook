@@ -29,3 +29,7 @@ export const Button = styled.button`
   font-weight: 100;
   color: whitesmoke;
 `;
+export const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
