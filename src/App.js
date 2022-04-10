@@ -40,7 +40,7 @@ function App() {
           <Route
             path="registration"
             element={
-              <ProtectedRoute path="/registration">
+              <ProtectedRoute>
                 <Registration />
               </ProtectedRoute>
             }
@@ -48,7 +48,7 @@ function App() {
           <Route
             path="user-page"
             element={
-              <PrivateRoute path="/user-page">
+              <PrivateRoute>
                 <UserView />
               </PrivateRoute>
             }
@@ -56,7 +56,7 @@ function App() {
           <Route
             path="phonebook"
             element={
-              <PrivateRoute path="/phonebook">
+              <PrivateRoute>
                 <Phonebook />
               </PrivateRoute>
             }

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { authSelectors, authOperations } from "../../redux/auth";
 import defaultAvatar from "./defaultAvatar.png";
-import { Button } from "../ContactList/ContactList.styled";
+import { Button } from "../Contacts/ContactList/ContactList.styled";
 export default function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUsername);

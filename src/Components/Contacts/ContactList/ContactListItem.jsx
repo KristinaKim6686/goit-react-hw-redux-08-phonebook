@@ -1,4 +1,4 @@
-import { useDeleteContactMutation } from "../../redux/phonebook/phonebookSlice";
+import { useDeleteContactMutation } from "../../../redux/phonebook/phonebookSlice";
 import { ListItem, Info, Button } from "./ContactList.styled";
 
 const PhonebookListItem = ({ name, number, id }) => {

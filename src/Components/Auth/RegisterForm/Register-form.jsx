@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { authOperations } from "../../redux/auth";
-import { Form, Label, Input, Button } from "../ContactForm/ContactForm.styled";
+import { authOperations } from "../../../redux/auth";
+import {
+  Form,
+  Label,
+  Input,
+  Button,
+} from "../../Contacts/ContactForm/ContactForm.styled";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();

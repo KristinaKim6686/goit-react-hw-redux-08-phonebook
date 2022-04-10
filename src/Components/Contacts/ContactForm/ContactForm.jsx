@@ -5,7 +5,7 @@ import { Form, Label, Input, Button } from "./ContactForm.styled.js";
 import {
   useGetContactsQuery,
   useAddContactMutation,
-} from "../../redux/phonebook/phonebookSlice";
+} from "../../../redux/phonebook/phonebookSlice";
 function ContactForm() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");

@@ -2,9 +2,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { MainHeader, Header } from "../../App.styled";
-import ContactForm from "../../Components/ContactForm";
-import ContactList from "../../Components/ContactList";
-import Filter from "../../Components/Filter";
+import ContactForm from "../../Components/Contacts/ContactForm";
+import ContactList from "../../Components/Contacts/ContactList";
+import Filter from "../../Components/Contacts/Filter";
 
 const Phonebook = () => {
   return (
